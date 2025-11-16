@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mask — The best anonymous platform for safe, friendly sharing</title>
+
+  <!-- Primary SEO -->
+  <meta name="description" content="Mask — a user-friendly anonymous platform for sharing and discovering voices safely. Private by design, easy to use, and trusted by communities." />
+  <link rel="canonical" href="https://yourdomain.com/" />
+
+  <!-- Social / Open Graph -->
+  <meta property="og:site_name" content="Mask" />
+  <meta property="og:title" content="Mask — The best anonymous platform for safe, friendly sharing" />
+  <meta property="og:description" content="Mask helps people share anonymously in a friendly, moderated environment — private by design and fast to use." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/" />
+  <meta property="og:image" content="https://yourdomain.com/assets/logo.png" />
+  <meta property="og:image:alt" content="Mask logo — anonymous, friendly ghost with mask" />
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' https://www.gstatic.com https://www.googleapis.com;
+  connect-src 'self' https://firestore.googleapis.com https://www.googleapis.com https://www.gstatic.com;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src 'self' https://fonts.gstatic.com;
+">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mask — The best anonymous platform" />
+  <meta name="twitter:description" content="Private, anonymous, and user-friendly — join Mask to share and connect safely." />
+  <meta name="twitter:image" content="https://yourdomain.com/assets/mask-og.png" />
+  <meta name="twitter:creator" content="@your_twitter" />
+
+  <!-- Favicons & PWA hints -->
+  <link rel="icon" type="image/png" href="/Mask/logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Mask/logo.png" />
+  <meta name="theme-color" content="#FFD400" />
+
+
+
+  <!-- Structured Data (Organization + WebSite + FAQ) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://yourdomain.com/#org",
+        "name": "Mask",
+        "url": "https://yourdomain.com/",
+        "logo": "https://yourdomain.com/assets/mask-logo.png",
+        "sameAs": ["https://twitter.com/your_twitter","https://www.instagram.com/your_instagram"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://yourdomain.com/#website",
+        "url": "https://yourdomain.com/",
+        "name": "Mask",
+        "publisher": { "@id": "https://yourdomain.com/#org" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://yourdomain.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Mask really anonymous?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mask is designed for anonymity: we do not display personal information publicly and we minimise data collection. See our Privacy Policy for details."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you keep the community safe?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We combine automated moderation, community reporting and clear content rules to keep Mask friendly and safe."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
