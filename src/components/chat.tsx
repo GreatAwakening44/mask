@@ -144,26 +144,26 @@ const ChatArea = ({ spaceId, onBack }: ChatAreaProps) => {
       </div>
 
       {/* Input Area */}
-      <div className="p-4 bg-gradient-to-t from-slate-900/95 to-transparent backdrop-blur-xl border-t border-slate-800/50">
-        <div className="flex items-end gap-2">
-          <textarea
-            value={newPost}
-            onChange={e => setNewPost(e.target.value)}
-            onKeyDown={handleKeyPress}
-            placeholder="Share something..."
-            className="flex-1 rounded-2xl px-4 py-3 bg-slate-900 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500/50 resize-none border border-slate-800 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-slate-900"
-            rows={1}
-            style={{ maxHeight: '100px' }}
-          />
-          <button
-            onClick={handleAddPost}
-            disabled={!newPost.trim()}
-            className="bg-gradient-to-r from-sky-500 to-blue-600 p-3 rounded-full text-white disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-sky-500/50 transition-all"
-          >
-            <Send className="w-5 h-5" />
-          </button>
-        </div>
-      </div>
+  <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-slate-900/95 to-transparent backdrop-blur-xl border-t border-slate-800/50">
+  <div className="flex items-end gap-2">
+    <textarea
+      value={newPost}
+      onChange={e => setNewPost(e.target.value)}
+      onKeyDown={handleKeyPress}
+      placeholder="Share something..."
+      className="flex-1 rounded-2xl px-4 py-3 bg-slate-900 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500/50 resize-none border border-slate-800 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-slate-900"
+      rows={1}
+      style={{ maxHeight: '100px' }}
+    />
+    <button
+      onClick={handleAddPost}
+      disabled={!newPost.trim()}
+      className="bg-gradient-to-r from-sky-500 to-blue-600 p-3 rounded-full text-white disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-sky-500/50 transition-all"
+    >
+      <Send className="w-5 h-5" />
+    </button>
+  </div>
+</div>
 
       {/* Toast */}
       {toast && (
