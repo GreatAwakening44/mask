@@ -14,8 +14,9 @@ const LandingPage = ({ onEnterSpace }: Props) => {
     try {
       setLoading(prev => ({ ...prev, create: true }));
       const spaceId = Math.random().toString(36).substring(2, 10).toUpperCase();
-      await createSpace(spaceId);       // create space in Firebase
-      onEnterSpace(spaceId, true);      // navigate to chat
+      await createSpace(spaceId);
+      setJoinCode(spaceId); // auto-fill joinCode for sharing
+      onEnterSpace(spaceId, true);
     } catch (err) {
       console.error("Failed to create space:", err);
       alert("Could not create space. Check console.");
@@ -28,8 +29,8 @@ const LandingPage = ({ onEnterSpace }: Props) => {
     try {
       setLoading(prev => ({ ...prev, join: true }));
       const id = joinCode.toUpperCase();
-      await joinSpace(id);               // join existing space
-      onEnterSpace(id, false);           // navigate to chat
+      await joinSpace(id);
+      onEnterSpace(id, false);
     } catch (e: any) {
       alert(e.message);
     } finally {
@@ -37,16 +38,15 @@ const LandingPage = ({ onEnterSpace }: Props) => {
     }
   };
 
-  const handleShareLink = async () => {
+  const handleShareLink = () => {
     if (!joinCode.trim()) return alert("Create or enter a space first!");
     const link = `${window.location.origin}?space=${joinCode.toUpperCase()}`;
-    try {
-      await navigator.clipboard.writeText(link);
-      setCopiedLink(true);
-      setTimeout(() => setCopiedLink(false), 2000);
-    } catch {
-      alert("Failed to copy link");
-    }
+    navigator.clipboard.writeText(link)
+      .then(() => {
+        setCopiedLink(true);
+        setTimeout(() => setCopiedLink(false), 2000);
+      })
+      .catch(() => alert("Failed to copy link"));
   };
 
   return (
@@ -82,7 +82,13 @@ const LandingPage = ({ onEnterSpace }: Props) => {
           </button>
         </div>
 
-       
+        {/* Share Link Button */}
+        <button
+          onClick={handleShareLink}
+          className="w-full mt-2 bg-slate-600/80 py-2 rounded-lg text-white font-medium hover:bg-slate-600/100 transition-colors flex items-center justify-center"
+        >
+          {copiedLink ? "Link Copied!" : "Copy Shareable Link"}
+        </button>
       </div>
     </div>
   );
