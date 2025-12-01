@@ -1,5 +1,5 @@
 import { useState, useEffect, type KeyboardEvent } from "react";
-import { Send, Heart, MessageCircle, Copy, Check } from "lucide-react";
+import { Send, Heart, MessageCircle, Copy, Check, Share2 } from "lucide-react";
 import { db } from "../config/firebase";
 import {
   collection,
@@ -72,11 +72,27 @@ const ChatArea = ({ spaceId, onBack }: ChatAreaProps) => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const shareLink = () => {
-    const url = `${window.location.origin}?space=${spaceId}`;
-    navigator.clipboard.writeText(url);
-    showToast("Share link copied!");
-  };
+const shareLink = async () => {
+  const url = `${window.location.origin}?space=${spaceId}`;
+
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: "Join my anonymous space",
+        text: "Drop an anonymous message!",
+        url,
+      });
+      showToast("Link shared!");
+      return;
+    } catch (err) {
+      console.log("Share canceled or failed:", err);
+    }
+  }
+
+  // Fallback for unsupported browsers
+  navigator.clipboard.writeText(url);
+  showToast("Share link copied!");
+};
 
   const handleAddPost = async () => {
     if (!newPost.trim()) return;
@@ -129,7 +145,14 @@ const ChatArea = ({ spaceId, onBack }: ChatAreaProps) => {
             <button onClick={copySpaceId} className="text-slate-400 hover:text-white transition-colors">
               {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
             </button>
-            <button onClick={shareLink} className="text-slate-400 hover:text-white transition-colors" title="Copy shareable link">🔗</button>
+           <button 
+  onClick={shareLink} 
+  className="text-slate-400 hover:text-white transition-colors"
+  title="Share"
+>
+  <Share2 className="w-3 h-3" />
+</button>
+
           </div>
 
           <div className="w-12"></div>
