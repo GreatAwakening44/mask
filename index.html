@@ -3,65 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mask — The best anonymous platform for safe, friendly sharing</title>
 
   <!-- Primary SEO -->
-  <meta name="description" content="Mask — a user-friendly anonymous platform for sharing and discovering voices safely. Private by design, easy to use, and trusted by communities." />
+  <title>Mask — Anonymous Messaging, Q&A & Safe Sharing (NGL Alternative)</title>
+  <meta name="description" content="Mask is the fastest, safest anonymous messaging platform — perfect for Q&A, sharing messages, and connecting without revealing your identity. A better alternative to NGL and similar apps." />
   <link rel="canonical" href="https://mask.pxxl.click" />
 
-  <!-- Social / Open Graph -->
+  <!-- Indexing -->
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="googlebot" content="index, follow" />
+
+  <!-- Preload important assets -->
+  <link rel="preload" as="image" href="https://raw.githubusercontent.com/GreatAwakening44/mask/main/logo.png" />
+
+  <!-- Open Graph -->
   <meta property="og:site_name" content="Mask" />
-  <meta property="og:title" content="Mask — The best anonymous platform for safe, friendly sharing" />
-  <meta property="og:description" content="Mask helps people share anonymously in a friendly, moderated environment — private by design and fast to use." />
+  <meta property="og:title" content="Mask — Anonymous Messaging & Safe Sharing" />
+  <meta property="og:description" content="Send and receive anonymous messages safely. Modern, private, and simple — try Mask today." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mask.pxxl.click" />
-  <meta property="og:image" content="hhttps://mask.pxxl.click/assets/logo.png" />
-  <meta property="og:image:alt" content="Mask logo — anonymous, friendly ghost with mask" />
-<meta http-equiv="Content-Security-Policy" content="
-  default-src 'self';
-  script-src 'self' https://www.gstatic.com https://www.googleapis.com;
-  connect-src 'self' https://firestore.googleapis.com https://www.googleapis.com https://www.gstatic.com;
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-  font-src 'self' https://fonts.gstatic.com;
-">
+  <meta property="og:image" content="https://raw.githubusercontent.com/GreatAwakening44/mask/main/logo.png" />
+  <meta property="og:image:alt" content="Mask logo — anonymous friendly ghost" />
+
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Mask — The best anonymous platform" />
-  <meta name="twitter:description" content="Private, anonymous, and user-friendly — join Mask to share and connect safely." />
-  <meta name="twitter:image" content="https://yourdomain.com/assets/mask-og.png" />
+  <meta name="twitter:title" content="Mask — Anonymous Messaging Platform" />
+  <meta name="twitter:description" content="A private, simple and safe way to receive anonymous messages. Works instantly — no account required." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/GreatAwakening44/mask/main/logo.png" />
   <meta name="twitter:creator" content="@your_twitter" />
 
-  <!-- Favicons & PWA hints -->
+  <!-- Favicons -->
   <link rel="icon" type="image/png" href="/logo.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/Mask/logo.png" />
-  <meta name="theme-color" content="#FFD400" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/logo.png" />
 
+  <!-- Theme Colors -->
+  <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
 
+  <!-- Optional PWA manifest -->
+  <link rel="manifest" href="/manifest.json" />
 
-  <!-- Structured Data (Organization + WebSite + FAQ) -->
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' https://www.gstatic.com https://www.googleapis.com;
+    connect-src 'self' https://firestore.googleapis.com https://www.googleapis.com https://www.gstatic.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: https://raw.githubusercontent.com;
+  ">
+
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://mask.pxxl.click",
+        "@id": "https://mask.pxxl.click/#org",
         "name": "Mask",
         "url": "https://mask.pxxl.click",
-        "logo": "https://yourdomain.com/assets/mask-logo.png",
-        "sameAs": ["https://twitter.com/your_twitter","https://www.instagram.com/your_instagram"]
+        "logo": "https://raw.githubusercontent.com/GreatAwakening44/mask/main/logo.png",
+        "sameAs": [
+          "https://twitter.com/your_twitter",
+          "https://www.instagram.com/your_instagram"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://mask.pxxl.click/#website",
         "url": "https://mask.pxxl.click",
         "name": "Mask",
-        "publisher": { "@id": "https://yourdomain.com/#org" },
+        "publisher": { "@id": "https://mask.pxxl.click/#org" },
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://yourdomain.com/search?q={search_term_string}",
+          "target": "https://mask.pxxl.click/search?q={search_term_string}",
           "query-input": "required name=search_term_string"
         }
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Mask — Anonymous Messaging App",
+        "url": "https://mask.pxxl.click",
+        "applicationCategory": "SocialNetworkingApplication",
+        "operatingSystem": "Web"
       },
       {
         "@type": "FAQPage",
@@ -71,15 +96,15 @@
             "name": "Is Mask really anonymous?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Mask is designed for anonymity: we do not display personal information publicly and we minimise data collection. See our Privacy Policy for details."
+              "text": "Mask does not store user identities or make them visible. Your messages remain anonymous."
             }
           },
           {
             "@type": "Question",
-            "name": "How do you keep the community safe?",
+            "name": "Is Mask safe?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We combine automated moderation, community reporting and clear content rules to keep Mask friendly and safe."
+              "text": "Mask uses automated moderation and community features to ensure a safe, friendly anonymous space."
             }
           }
         ]
@@ -87,10 +112,11 @@
     ]
   }
   </script>
+
 </head>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
 </html>
